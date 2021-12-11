@@ -19,7 +19,8 @@ app.get('/', (req, res) => {
 
   app.use('/api', require('./routes/login.js'))
   app.use('/api', require('./routes/getClinics.js'))
-  app.use('/api', require('./routes/filteredClinics.js'))
+  app.use('/api', require('./routes/lowStock.js'))
+  app.use('/api', require('./routes/updateStock.js'))
 
 
 app.listen(port, () => {

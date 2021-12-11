@@ -1,190 +1,48 @@
-const { v4 } = require('uuid');
-
 exports.seed = function(knex) {
   // Deletes ALL existing entries
   return knex('clinics').del()
-    .then(function () {
+    .then(async function () {
       // Inserts seed entries
-      return knex('clinics').insert([
+      return await knex('clinics').insert([
         {
-          id: v4(),
-          clinic_name: 'Clinic A',
-          medication: [
-            {
-            name: 'Nevirapine',
-            amount: 25
-          },
-          {
-            name: 'Stavudine',
-            amount: 8
-          },
-          {
-            name: 'Zidotabine',
-            amount: 11
-          }
-        ]
+          id: 0,
+          clinic_name: 'Clinic A'
         },
         {
-          id: v4(),
-          clinic_name: 'Clinic B',
-          medication: [
-            {
-            name: 'Nevirapine',
-            amount: 17
-          },
-          {
-            name: 'Stavudine',
-            amount: 50
-          },
-          {
-            name: 'Zidotabine',
-            amount: 20
-          }
-        ]
+          id: 1,
+          clinic_name: 'Clinic B'
         },
         {
-          id: v4(),
-          clinic_name: 'Clinic C',
-          medication: [
-            {
-            name: 'Nevirapine',
-            amount: 1
-          },
-          {
-            name: 'Stavudine',
-            amount: 5
-          },
-          {
-            name: 'Zidotabine',
-            amount: 18
-          }
-        ]
+          id: 2,
+          clinic_name: 'Clinic C'
         },
         {
-          id: v4(),
-          clinic_name: 'Clinic D',
-          medication: [
-            {
-            name: 'Nevirapine',
-            amount: 11
-          },
-          {
-            name: 'Stavudine',
-            amount: 4
-          },
-          {
-            name: 'Zidotabine',
-            amount: 16
-          }
-        ]
+          id: 3,
+          clinic_name: 'Clinic D'
         },
         {
-          id: v4(),
-          clinic_name: 'Clinic E',
-          medication: [
-          {
-            name: 'Nevirapine',
-            amount: 30
-          },
-          {
-            name: 'Stavudine',
-            amount: 22
-          },
-          {
-            name: 'Zidotabine',
-            amount: 3
-          }
-        ]
+          id: 4,
+          clinic_name: 'Clinic E'
         },
         {
-          id: v4(),
-          clinic_name: 'Clinic F',
-          medication: [
-            {
-            name: 'Nevirapine',
-            amount: 7
-          },
-          {
-            name: 'Stavudine',
-            amount: 9
-          },
-          {
-            name: 'Zidotabine',
-            amount: 12
-          }
-        ]
+          id: 5,
+          clinic_name: 'Clinic F'
         },
         {
-          id: v4(),
-          clinic_name: 'Clinic G',
-          medication: [
-            {
-            name: 'Nevirapine',
-            amount: 10
-          },
-          {
-            name: 'Stavudine',
-            amount: 31
-          },
-          {
-            name: 'Zidotabine',
-            amount: 29
-          }
-        ]
+          id: 6,
+          clinic_name: 'Clinic G'
         },
         {
-          id: v4(),
-          clinic_name: 'Clinic H',
-          medication: [
-            {
-            name: 'Nevirapine',
-            amount: 27
-          },
-          {
-            name: 'Stavudine',
-            amount: 44
-          },
-          {
-            name: 'Zidotabine',
-            amount: 13
-          }
-        ]
+          id: 7,
+          clinic_name: 'Clinic H'
         },
         {
-          id: v4(),
-          clinic_name: 'Clinic I',
-          medication: [
-            {
-            name: 'Nevirapine',
-            amount: 66
-          },
-          {
-            name: 'Stavudine',
-            amount: 15
-          },
-          {
-            name: 'Zidotabine',
-            amount: 20
-          }
-        ]
+          id: 8,
+          clinic_name: 'Clinic I'
         },
         {
-          id: v4(),
-          clinic_name: 'Clinic J',
-          medication: [
-            {
-            name: 'Nevirapine',
-            amount: 97
-          },
-          {
-            name: 'Stavudine',
-            amount: 54
-          },
-          {
-            name: 'Zidotabine',
-            amount: 2
-          }
-        ]
+          id: 9,
+          clinic_name: 'Clinic J'
         },
       ]);
     });
