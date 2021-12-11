@@ -7,18 +7,19 @@ const signIn = async (email, password) => {
     try {
         const headersList = {
             'Accept': '*/*',
-            'User-Agent': 'Thunder Client (https://www.thunderclient.io)',
+            'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json'
           }
         fetch('http://localhost:3000/api/login', {
             method: 'POST',
+            mode: 'no-cors',
             body: JSON.stringify({
                 email: email,
                 password: password
             }),
             headers: headersList
-        }).then(res => res.json())
-        .then(data => console.log(data))
+        }).then(res => console.log(res))
+        .then(data => console.log(data, { msg: 'user logged in' }))
     } catch (err) {
         console.log({ msg: err.message});
         err.value = err.message

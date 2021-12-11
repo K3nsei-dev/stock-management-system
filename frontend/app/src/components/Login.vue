@@ -20,17 +20,16 @@
 
 <script>
 import { ref } from 'vue'
-import useSignIn from '../../composables/login'
+import useSignIn from '../composables/login'
 export default {
     setup () {
+      const { error, signIn } = useSignIn()
       const email = ref('')
       const password = ref('')
-      const { error, signIn } = useSignIn()
       const handleSubmit = async () => {
         await signIn(email.value, password.value)
-        console.log('user logged in');
       }
-      return { handleSubmit, email, password, error }
+      return { email, password, handleSubmit, error }
 }
 }
 </script>
