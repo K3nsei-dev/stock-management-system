@@ -1,21 +1,25 @@
 <template>
-  <form @submit.prevent="handleSubmit">
+<div class="container">
+  <form @submit.prevent="handleSubmit" id="form">
     <h1>Sign In</h1>
       <input 
       type="text" 
       required 
       placeholder="email@example.com"
       v-model="email"
+      class="input"
       >
       <input 
       type="password" 
       required 
       placeholder="**********"
       v-model="password"
+      class="input"
       >
       <div v-if="error"> {{ error }} </div>
-      <button>Login</button>
+      <button class="button">Login</button>
   </form>
+</div>
 </template>
 
 <script>
@@ -29,11 +33,8 @@ export default {
       const email = ref('')
       const password = ref('')
       const handleSubmit = async () => {
-        const Login = await signIn(email.value, password.value)
-
-        if (Login) {
-           router.push({ name: 'Clinics'})
-        }
+        await signIn(email.value, password.value)
+        router.push({ name: 'Clinics'})
       }
       return { email, password, handleSubmit, error }
 }
@@ -41,5 +42,4 @@ export default {
 </script>
 
 <style>
-
 </style>

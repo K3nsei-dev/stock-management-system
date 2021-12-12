@@ -3,6 +3,7 @@ import { ref } from 'vue'
 const error = ref(null)
 
 const signIn = async (email, password) => {
+    const user_login = ref(null)
     error.value = null
     try {
         const headersList = {
@@ -17,11 +18,16 @@ const signIn = async (email, password) => {
                 password: password
             }),
             headers: headersList
-        }).then(res => console.log(res))
-        .then(data => console.log(data, { msg: 'user logged in' }))
+        }).then(res => res.json())
+        .then(data => {
+            console.log(data)
+            user_login.value = data
+            error.value = null
+        })
     } catch (err) {
         console.log({ msg: err.message});
-        err.value = err.message
+        error.value = err.message
+        user_login = null
     }
 }
 

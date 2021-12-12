@@ -1,7 +1,7 @@
 <template>
   <div>
-        <input type="number" v-model="amount">
-        <button @click="handleSubmit(id)">Update {{ medicationName }}</button>
+        <input type="number" v-model="amount" class="input">
+        <button class="button" @click="handleSubmit(id)">Update {{ medicationName }}</button>
   </div>
 </template>
 

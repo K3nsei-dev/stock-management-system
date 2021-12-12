@@ -2,8 +2,9 @@
   <div>
       <h1>Low Stock List</h1>
       <router-link :to="{ name: 'Clinics'}">
-        <button>View Clinics</button>
+        <button class="button">View Clinics</button>
       </router-link>
+      <h2 class="text">Warning: Low Medication Stock</h2>
       <div v-for="stock in Stocks" :key="stock">
         <h3>{{ stock }}</h3>
       </div>

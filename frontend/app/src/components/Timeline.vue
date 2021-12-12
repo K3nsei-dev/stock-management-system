@@ -1,11 +1,11 @@
 <template>
   <div>
       <router-link :to="{ name: 'signIn' }">
-          <button>LOG OUT</button>
+          <button class="button">LOG OUT</button>
       </router-link>
       <h1>Clinics in the Mezzanine District</h1>
     <router-link :to="{ name: 'lowStock'}">
-        <button>View Clinics that are Low on Stock</button>
+        <button class="button">View Clinics that are Low on Stock</button>
     </router-link>
     <div v-if="error"> {{ error }} </div>
     <div v-for="clinic in clinics" :key="clinic.id">
