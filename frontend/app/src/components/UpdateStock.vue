@@ -1,7 +1,11 @@
 <template>
-  <div>
+  <div class="container">
+      <div>
         <input type="number" v-model="amount" class="input">
+      </div>
+      <div>
         <button class="button" @click="handleSubmit(id)">Update {{ medicationName }}</button>
+      </div>
   </div>
 </template>
 

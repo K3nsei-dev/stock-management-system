@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="clinicData">
       <router-link :to="{ name: 'signIn' }">
           <button class="button">LOG OUT</button>
       </router-link>
@@ -8,13 +8,13 @@
         <button class="button">View Clinics that are Low on Stock</button>
     </router-link>
     <div v-if="error"> {{ error }} </div>
-    <div v-for="clinic in clinics" :key="clinic.id">
+    <div class="clinics" v-for="clinic in clinics" :key="clinic.id">
         <div>
             <h1> {{ clinic.clinicName }} </h1>
             <div>
                 <h2>Clinic Medication</h2>
                 <div v-for="medication in clinic.medications" :key="medication.name"> 
-                    <h3>{{ medication.name }}: {{ medication.amount }}</h3>
+                    <h3>{{ medication.name }}: {{ medication.amount }} units in stock</h3>
                     <update :id="clinic.id" :medicationName="medication.name" />
                 </div>
             </div>

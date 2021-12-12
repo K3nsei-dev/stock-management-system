@@ -5,12 +5,15 @@ body {
   min-height: 100vh;
   width: 100vw;
   background: linear-gradient(to bottom right, white, lime);
+  overflow-x: hidden;
 }
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 20px;
    
   }
   
@@ -40,7 +43,7 @@ body {
   }
   
   .button:hover {
-    background: lime;
+    background: rgba(50, 205, 50);
     transition: all 0.3s linear;
   }
 
@@ -50,3 +53,23 @@ body {
     text-align: center;
     color: red;
   }
+
+  #clinicData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.clinics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    gap: 20px;
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    padding: 50px;
+    margin: 20px;
+    background: rgba(50, 205, 50, 0.2);
+}

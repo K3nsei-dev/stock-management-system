@@ -5,7 +5,7 @@
         <button class="button">View Clinics</button>
       </router-link>
       <h2 class="text">Warning: Low Medication Stock</h2>
-      <div v-for="stock in Stocks" :key="stock">
+      <div class="bullets" v-for="stock in Stocks" :key="stock">
         <h3>{{ stock }}</h3>
       </div>
   </div>
