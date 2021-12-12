@@ -1,27 +1,25 @@
 import { ref } from 'vue'
 
-const error = ref(null)
-
 const getAllClinics = () => {
+    const error = ref(null)
+    const clinic_data = ref(null)
     error.value = null
     try {
-        fetch('localhost:3000/api/clinics', {
-            method: 'GET',
-            mode: 'no-cors',
-            headers: {
-                "Accept": "*/*",
-                "Content-Type": "application/json"
-            }
-        }).then(res => console.log(res))
-        .then(data => console.log(data))
+        fetch('http://localhost:3000/api/clinics')
+        .then( res => res.json())
+        .then((data) => { 
+            // console.log('working', data) 
+            error.value = null
+            clinic_data.value = data.clinics
+        })
     } catch (err) {
+        // console.log(data);
         console.log({ msg: err.message });
         error.value = err.message;
+        clinic_data.value = null
     }
+
+    return { error, clinic_data }
 };
 
-const useGetAllClinics = () => {
-    return { error, getAllClinics }
-}
-
-export default useGetAllClinics;
+export default getAllClinics;

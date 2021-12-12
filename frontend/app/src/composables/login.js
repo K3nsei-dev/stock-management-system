@@ -12,7 +12,6 @@ const signIn = async (email, password) => {
           }
         fetch('http://localhost:3000/api/login', {
             method: 'POST',
-            mode: 'no-cors',
             body: JSON.stringify({
                 email: email,
                 password: password
