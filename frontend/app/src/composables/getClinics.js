@@ -16,14 +16,15 @@ const getAllClinics = () => {
 
                 if (foundClinic?.clinicName === currentClinic.clinic_name) {
                     foundClinic.medications.push({
+                        id: currentClinic.id,
                         name: currentClinic.medication_name,
                         amount: currentClinic.amount
                     })
                 } else {
                     clinics.push({
-                        id: currentClinic.id,
                         clinicName: currentClinic.clinic_name,
                         medications: [{
+                            id: currentClinic.id,
                             name: currentClinic.medication_name,
                             amount: currentClinic.amount
                         }]

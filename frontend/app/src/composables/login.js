@@ -1,9 +1,9 @@
 import { ref } from 'vue'
 
 const error = ref(null)
+const details = ref(null)
 
-const signIn = async (email, password) => {
-    const user_login = ref(null)
+const signIn = (email, password) => {
     error.value = null
     try {
         const headersList = {
@@ -18,10 +18,15 @@ const signIn = async (email, password) => {
                 password: password
             }),
             headers: headersList
-        }).then(res => res.json())
-        .then(data => {
-            console.log(data)
-            user_login.value = data
+        }).then(async res => [!(res.status === 200), await res.json()])
+        .then(([isError, data]) => {
+            if (isError) {
+                // console.log({ msg: data.msg});
+                error.value = data.msg
+                return
+            }
+            console.log('data', data)
+            details.value = data.msg
             error.value = null
         })
     } catch (err) {
@@ -32,7 +37,7 @@ const signIn = async (email, password) => {
 }
 
 const useSignIn = () => {
-    return { error, signIn }
+    return { error, signIn, details }
 }
 
 export default useSignIn

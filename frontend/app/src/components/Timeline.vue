@@ -22,7 +22,7 @@
                 <h2>Clinic Medication</h2>
                 <div v-for="medication in clinic.medications" :key="medication.name"> 
                     <h3>{{ medication.name }}: {{ medication.amount }} units in stock</h3>
-                    <update :id="clinic.id" :medicationName="medication.name" />
+                    <update :id="medication.id" :medicationName="medication.name" />
                 </div>
             </div>
         </div>

@@ -12,16 +12,14 @@ async function Login (req, res) {
                 //    .andWhere('password', password)
                    .then((user) => { return user[0] });
 
-        
+        if (!user) {
+            return res.status(401).json({ msg: 'Invalid Email' })
+        }
 
         const userPass = await bcrypt.compare(password, user.password);
         
-        if (!user && !userPass) {
-            res.json({ msg: 'Invalid Login Details' });
-        } else if (!user && userPass) {
-            res.json({ msg: 'Invalid Email' })
-        } else if (user && !userPass) {
-            res.json({ msg: 'Invalid Password' })
+        if (!userPass) {
+            res.status(401).json({ msg: 'Invalid Password' })
         } else {
             res.json({ msg: 'You logged in' })
         }

@@ -12,7 +12,7 @@ const routes = [
   },
   {
     path: '/clinics',
-    name: 'Clinics',
+    name: 'clinics',
     component: () => import('../pages/Clinics.vue'),
     children: [
         { path: '', component: () => import('../components/Timeline.vue')}

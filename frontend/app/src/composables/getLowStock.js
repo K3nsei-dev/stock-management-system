@@ -8,7 +8,7 @@ const getLowStock = () => {
         fetch('http://localhost:3000/api/low-stock'
         ).then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             error.value = null
             lowStock.value = data
         })

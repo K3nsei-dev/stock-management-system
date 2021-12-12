@@ -17,7 +17,7 @@ const updateStock = (id, amount) => {
             })
         }).then(res => res.json())
         .then(data => {
-            console.log('working', data)
+            // console.log('working', data)
             updateStock.value = data
             error.value = null
         })

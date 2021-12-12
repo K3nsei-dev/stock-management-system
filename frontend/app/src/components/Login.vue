@@ -24,19 +24,28 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import useSignIn from '../composables/login'
 export default {
     setup () {
       const router = useRouter()
-      const { error, signIn } = useSignIn()
+      const { error, signIn, details } = useSignIn()
       const email = ref('')
       const password = ref('')
       const handleSubmit = async () => {
-        await signIn(email.value, password.value)
-        router.push({ name: 'Clinics'})
+        const login = await signIn(email.value, password.value);
+
+        console.log('login', login);
+        console.log('details', details.value);
+        console.log(error);
+
       }
+      watch(details, (details) => {
+        if (details === "You logged in") {
+          router.push({ name: 'clinics'})
+        }
+      })
       return { email, password, handleSubmit, error }
 }
 }
