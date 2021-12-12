@@ -11,7 +11,7 @@
         </div>
     </div>
     <h1>Low Stock List</h1>
-    <router-link :to="{ name: 'Clinics'}">
+    <router-link :to="{ name: 'clinics'}">
         <button class="button">View Clinics</button>
     </router-link>
       <h2 class="text">Warning: Low Medication Stock</h2>
