@@ -1,26 +1,30 @@
 import { ref } from 'vue'
-
 const error = ref(null)
 
-const updateStock = () => {
+const updateStock = (id, amount) => {
+    const updateStock = ref(null)
     error.value = null
     try {
-        fetch('localhost:3000/api/update', {
+        fetch('http://localhost:3000/api/update', {
             method: 'PUT',
             headers: {
                 'Accept': '*/*',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "clinic_id": req.body.clinic_id,
-                "medication_id": req.body.medication_id,
-                "amount": req.body.amount
+                id: id,
+                amount: amount
             })
         }).then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log('working', data)
+            updateStock.value = data
+            error.value = null
+        })
     } catch (err) {
         console.log({ msg: err.message });
-        err.value = err.message
+        error.value = err.message
+        updateStock.value = null
     }
 };
 

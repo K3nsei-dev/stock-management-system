@@ -1,5 +1,6 @@
 import { ref } from 'vue'
 
+
 const getAllClinics = () => {
     const error = ref(null)
     const clinic_data = ref(null)
@@ -10,7 +11,27 @@ const getAllClinics = () => {
         .then((data) => { 
             // console.log('working', data) 
             error.value = null
-            clinic_data.value = data.clinics
+            clinic_data.value = data.clinics.reduce((clinics, currentClinic) => {
+                const foundClinic = clinics.find(clinic => clinic.clinicName === currentClinic.clinic_name)
+
+                if (foundClinic?.clinicName === currentClinic.clinic_name) {
+                    foundClinic.medications.push({
+                        name: currentClinic.medication_name,
+                        amount: currentClinic.amount
+                    })
+                } else {
+                    clinics.push({
+                        id: currentClinic.id,
+                        clinicName: currentClinic.clinic_name,
+                        medications: [{
+                            name: currentClinic.medication_name,
+                            amount: currentClinic.amount
+                        }]
+                    })
+                }
+
+                return clinics
+            }, [])
         })
     } catch (err) {
         // console.log(data);

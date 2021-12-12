@@ -20,14 +20,20 @@
 
 <script>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import useSignIn from '../composables/login'
 export default {
     setup () {
+      const router = useRouter()
       const { error, signIn } = useSignIn()
       const email = ref('')
       const password = ref('')
       const handleSubmit = async () => {
-        await signIn(email.value, password.value)
+        const Login = await signIn(email.value, password.value)
+
+        if (Login) {
+           router.push({ name: 'Clinics'})
+        }
       }
       return { email, password, handleSubmit, error }
 }

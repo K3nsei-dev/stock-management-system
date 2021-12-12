@@ -1,22 +1,26 @@
 <template>
   <div>
-    <div v-for="stock in lowStock" :key="stock">
-        <div> {{ stock }}</div>
-    </div>
+      <h1>Low Stock List</h1>
+      <router-link :to="{ name: 'Clinics'}">
+        <button>View Clinics</button>
+      </router-link>
+      <div v-for="stock in Stocks" :key="stock">
+        <h3>{{ stock }}</h3>
+      </div>
   </div>
 </template>
 
 <script>
-import useGetLowStock from '../composables/getLowStock'
+import getLowStock from '../composables/getLowStock'
 export default {
    setup () {
-       const { error, getLowStock } = useGetLowStock()
+       const { error, lowStock } = getLowStock()
 
-       const lowStock = getLowStock()
+       const Stocks = lowStock
 
-       console.log(lowStock);
+       console.log(Stocks);
 
-       return { error, getLowStock, lowStock }
+       return { error, lowStock, Stocks }
    }
 }
 </script>

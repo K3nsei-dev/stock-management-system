@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    name: 'SignIn',
+    name: 'signIn',
     component: () => import('../pages/SignIn.vue'),
     children: [
         { path: '', component: () => import('../components/Login.vue')}
@@ -12,6 +12,7 @@ const routes = [
   },
   {
     path: '/clinics',
+    name: 'Clinics',
     component: () => import('../pages/Clinics.vue'),
     children: [
         { path: '', component: () => import('../components/Timeline.vue')}
@@ -19,6 +20,7 @@ const routes = [
   },
   {
     path: '/low-stock',
+    name: 'lowStock',
     component: () => import('../pages/Stock.vue'),
     children: [
         { path: '', component: () => import('../components/LowStock.vue')}
