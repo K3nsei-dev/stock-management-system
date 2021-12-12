@@ -73,3 +73,10 @@ body {
     margin: 20px;
     background: rgba(50, 205, 50, 0.2);
 }
+
+.headerContainer {
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
+  align-items: center;
+}

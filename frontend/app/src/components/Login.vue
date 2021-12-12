@@ -1,5 +1,6 @@
 <template>
 <div class="container">
+  <h1>Mezzanine Stock Management System</h1>
   <form @submit.prevent="handleSubmit" id="form">
     <h1>Sign In</h1>
       <input 

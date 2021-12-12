@@ -1,8 +1,15 @@
 <template>
   <div id="clinicData">
-      <router-link :to="{ name: 'signIn' }">
-          <button class="button">LOG OUT</button>
-      </router-link>
+      <div class="headerContainer">
+          <div>
+              <h3>Mezzanine Stock Management System</h3>
+          </div>
+          <div>
+            <router-link :to="{ name: 'signIn' }">
+                <button class="button">LOG OUT</button>
+            </router-link>
+          </div>
+      </div>
       <h1>Clinics in the Mezzanine District</h1>
     <router-link :to="{ name: 'lowStock'}">
         <button class="button">View Clinics that are Low on Stock</button>
@@ -41,5 +48,4 @@ components: { update }
 </script>
 
 <style>
-
 </style>
