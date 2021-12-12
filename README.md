@@ -19,4 +19,4 @@ npm run serve
 
 ```
 
->Read each Readme file on how to configure the backend/frontend
+>Read the README.md file in the backend folder on how to configure the backend
