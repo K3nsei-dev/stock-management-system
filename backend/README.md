@@ -31,6 +31,15 @@ module.exports = {
     PORT: 3000
 };
 ```
+## Generating Tables
+```ruby 
+npm run latest
+```
+
+## Creating the data
+```ruby
+npm run seed
+```
 
 ## Start server | Test
 > **Backend**
