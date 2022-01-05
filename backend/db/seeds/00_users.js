@@ -1,5 +1,5 @@
 const { v4 } = require('uuid');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const salt = bcrypt.genSaltSync(10);
 const hash = bcrypt.hashSync('Password', salt)
